@@ -1,0 +1,28 @@
+<html>
+<head>
+    <link rel="stylesheet" href="bootstrap.css">
+</head>
+<body>
+    <div ng-app="MinesweeperApp" ng-controller="MineSweeperCtrl as vm">
+        <table>
+            <tr ng-repeat="row in vm.rows">
+                <td ng-repeat="cell in row"> <!-- ng-class="cell.isBomb ? 'btn-danger' : 'btn-info'" -->
+                    <!-- ng-class="cell.show ? cell.isBomb ? 'btn-danger' : 'btn-default' : cell.isMarked ? 'btn-warning' : 'btn-info'" -->
+                    
+                    <button style="width:30px; margin:0px;  height:30px" 
+                    ng-class="cell.isCurrent ? 'btn-success' : cell.show ? cell.isBomb ? 'btn-danger' : 'btn-default' : cell.isMarked ? 'btn-warning' : 'btn-info'"
+                    type="button" 
+                    ng-mousedown="vm.handleClick($event, cell)" oncontextmenu="return false"
+                     ng-click="vm.creator ? vm.putBomb(cell.i, cell.j) : vm.showCell(cell.i, cell.j)">
+                        {{cell.show ? cell.isBomb ? '*' : cell.bombCount > 0 ? cell.bombCount : "" : ( cell.guess ? cell.guess : "")}}
+                    </button>
+                </td>
+            </tr>
+        </table>
+        <button type="button" ng-click="vm.showAll()">show All</button>
+        <button type="button" ng-click="vm.hideAll()">hide All</button>
+    </div>
+    <script src="angular.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,89 @@
+<html>
+
+    <head>
+        <title>Calorie Calculator</title>
+        <script src="calorie-calculator.js"></script>
+        <script src="app.js"></script>
+    </head>
+
+    <body>
+        <div id="inputs">
+
+            <div>
+                <label>Enter Weight:</label>
+                <input type="text" id="weight" value="120"/>
+                <select id="weightUnit">
+                    <option value="kg">kg</option>
+                    <option value="lbs">lbs</option>
+                </select>
+            </div>
+
+            <div>
+                <label>Enter height:</label>
+                <input type="text" id="height" value="170"/>
+                <select id="heightUnit">
+                    <option value="cm">cm</option>
+                    <option value="in">in</option>
+                </select>
+            </div>
+
+            <div>
+                <label>Enter age:</label>
+                <input type="text" id="age" value="25"/>
+            </div>
+
+            <div>
+                <label>Enter gender:</label>
+                <select id="gender">
+                    <option value="0">male</option>
+                    <option value="1">female</option>
+                </select>
+            </div>
+            
+            <div>
+                <label>Enter activity:</label>
+                <select id="activity">
+                    <option value="1.2">sedentary</option>
+                    <option value="1.375">Light = 1 - 2 days/week</option>
+                    <option value="1.55">Moderate = 3 - 5 days/week</option>
+                    <option value="1.725">Very Active = daily</option>
+                </select>
+            </div>
+
+            <button type="button" onclick="calc()">Calculate</button>
+
+        </div>
+
+        <div id="step1" class="stepContainer" style="visibility: hidden">
+            <h1> step 1: Gathering data </h1>
+            <h2><span> Weight:          </span><span id="WeightView"></span></h2>
+            <h2><span> height:          </span><span id="heightView"></span></h2>
+            <h2><span> age:             </span><span id="ageView"></span></h2>
+            <h2><span> gender:          </span><span id="genderView"></span></h2>
+            <h2><span> activity ratio:  </span><span id="activity-ratio"></span></h2>
+        </div>
+        
+        <hr style="visibility: hidden">
+        <div id="step2" class="stepContainer" style="visibility: hidden">
+            <h1> step 2: basal metabolic rate </h1>
+            
+
+            <h2>basal Metabolic rate equation for your gender is</h2>
+            <h2 id="basal-metabolic-rate1"></h2>
+            <h2 id="basal-metabolic-rate2"></h2>
+            <h2>Your Basal Metabolic Rate:</h2><h2 id="basal-metabolic-rate3"></h2>
+        </div>
+
+        <div id="step3" class="stepContainer" style="visibility: hidden">
+            <h1> step 3: calories</h1>
+            <h2>Finally we will multiply your basalMetabolicRate * activity</h2>
+            <h2>
+                <span id="basal-metabolic-rate4"></span> * <span id="activity2"></span>
+            </h2>
+            <h2>Result</h2>
+            <h2 id="result"></h2>
+        </div>
+
+    </body>
+
+</html>
